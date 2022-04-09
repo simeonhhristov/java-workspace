@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.geometry</OriginalElement>
+  <nodes>
+    <node x="-232.0" y="222.0">com.example.geometry.Rectangle</node>
+    <node x="138.0" y="374.0">com.example.geometry.Line</node>
+    <node x="107.37499999999999" y="0.0">com.example.geometry.Point</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.geometry.Rectangle" target="com.example.geometry.Point" relationship="CREATE">
+      <point x="56.75" y="-171.0" />
+      <point x="-61.75" y="240.0" />
+      <point x="332.0" y="240.0" />
+      <point x="332.0" y="230.0" />
+      <point x="264.125" y="230.0" />
+      <point x="52.25" y="105.0" />
+    </edge>
+    <edge source="com.example.geometry.Line" target="com.example.geometry.Point" relationship="TO_ONE">
+      <point x="-40.0" y="-138.0" />
+      <point x="178.0" y="250.0" />
+      <point x="108.5" y="250.0" />
+      <point x="108.5" y="240.0" />
+      <point x="159.625" y="240.0" />
+      <point x="-52.25" y="105.0" />
+    </edge>
+    <edge source="com.example.geometry.Rectangle" target="com.example.geometry.Point" relationship="TO_ONE">
+      <point x="-56.75" y="-171.0" />
+      <point x="-175.25" y="250.0" />
+      <point x="108.5" y="250.0" />
+      <point x="108.5" y="240.0" />
+      <point x="159.625" y="240.0" />
+      <point x="-52.25" y="105.0" />
+    </edge>
+    <edge source="com.example.geometry.Line" target="com.example.geometry.Point" relationship="CREATE">
+      <point x="40.0" y="-138.0" />
+      <point x="258.0" y="240.0" />
+      <point x="332.0" y="240.0" />
+      <point x="332.0" y="230.0" />
+      <point x="264.125" y="230.0" />
+      <point x="52.25" y="105.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="true" x="203.5" y="306.0" />
+  <SelectedNodes>
+    <node>com.example.geometry.Line</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
