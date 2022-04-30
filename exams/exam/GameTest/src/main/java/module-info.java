@@ -1,7 +1,7 @@
-module com.example.newgametest {
+module com.example.gametest {
     requires javafx.controls;
     requires javafx.fxml;
-    requires NewGameLib;
+    requires CardsGameLib;
 
 
     opens gui to javafx.fxml;
