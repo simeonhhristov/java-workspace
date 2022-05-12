@@ -111,7 +111,6 @@ public class SquareMatrix {
         ArrayList<Integer> rows = new ArrayList<Integer>(0);
         ArrayList<Integer> cols = new ArrayList<Integer>(0);
 
-
         for (int i = 0; i < this.dataArray.length - 1; i++) {
             for (int j = 0; j < this.dataArray.length - 1; j++) {
                 int tl = this.dataArray[i][j];
