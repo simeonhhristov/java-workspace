@@ -1,15 +1,18 @@
 package com.example.task2;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
-public class HelloController {
+public class HelloController extends AnchorPane {
     private double resultScreen = 0;
     private double currentScreen = 0;
     private char lastOperation = '\0';
@@ -302,6 +305,43 @@ public class HelloController {
         assert btnZero != null : "fx:id=\"btnZero\" was not injected: check your FXML file 'hello-view.fxml'.";
         assert txtScreen != null : "fx:id=\"txtScreen\" was not injected: check your FXML file 'hello-view.fxml'.";
 
+        btnOne.setOnAction(this::onActionHandlerOne);
+        btnTwo.setOnAction(this::onActionHandlerTwo);
+        btnThree.setOnAction(this::onActionHandlerThree);
+        btnFour.setOnAction(this::onActionHandlerFour);
+        btnFive.setOnAction(this::onActionHandlerFive);
+        btnSix.setOnAction(this::onActionHandlerSix);
+        btnSeven.setOnAction(this::onActionHandlerSeven);
+        btnEight.setOnAction(this::onActionHandlerEight);
+        btnNine.setOnAction(this::onActionHandlerNine);
+        btnZero.setOnAction(this::onActionHandlerZero);
+        btnInf.setOnAction(this::onActionHandlerInf);
+
+        btnMinus.setOnAction(this::onActionHandlerMinus);
+        btnPlus.setOnAction(this::onActionHandlerPlus);
+        btnMultiply.setOnAction(this::onActionHandlerMultiply);
+        btnDivide.setOnAction(this::onActionHandlerDivide);
+        btnEquals.setOnAction(this::onActionHandlerEquals);
+        btnPoint.setOnAction(this::onActionHandlerPoint);
+
+        btnClearCurr.setOnAction(this::onActionHandlerClearCurr);
+        btnClearAll.setOnAction(this::onActionHandlerClearAll);
+
+        btnQuit.setOnAction(this::onActionHandlerQuit);
+
+    }
+
+    public HelloController() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("hello-view.fxml"));
+
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        }catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
 }
