@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="607.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.databasesproject.HelloController">
+   <children>
+      <TabPane prefHeight="652.0" prefWidth="1265.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="0.0">
+        <tabs>
+          <Tab text=" Movies ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="623.0" prefWidth="1274.0">
+                     <children>
+                        <GridPane prefHeight="583.0" prefWidth="1239.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="909.0" minWidth="10.0" prefWidth="417.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="808.0" minWidth="10.0" prefWidth="808.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <children>
+                              <GridPane prefHeight="194.0" prefWidth="417.0" GridPane.rowSpan="2">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="lblMovieName" prefHeight="36.0" prefWidth="440.0" promptText="Movie name" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+                                    <TextField fx:id="lblDirector" prefHeight="36.0" prefWidth="440.0" promptText="Director" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+                                    <MenuButton fx:id="mbtnGenre" mnemonicParsing="false" prefHeight="41.0" prefWidth="417.0" style="-fx-background-color: white; -fx-border-width: 1px; -fx-border-color: #cfcfcf; -fx-border-radius: 3px; -fx-focus-color: rgba(0,255,0,0.5);" text="Genre" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                                      <items>
+                                          <MenuItem fx:id="optAny" mnemonicParsing="false" onAction="#optAnyOnActionHandler" text="Any Genre" />
+                                        <MenuItem fx:id="optSciFi" mnemonicParsing="false" onAction="#optSciFiOnActionHandler" text="Science Fiction" />
+                                        <MenuItem fx:id="optHorror" mnemonicParsing="false" onAction="#optHorrorOnActionHandler" text="Horror" />
+                                          <MenuItem fx:id="optComedy" mnemonicParsing="false" onAction="#optComedyOnActionHandler" text="Comedy" />
+                                          <MenuItem fx:id="optAction" mnemonicParsing="false" onAction="#optActionOnActionHandler" text="Action" />
+                                          <MenuItem fx:id="optCrime" mnemonicParsing="false" onAction="#optCrimeOnActionHandler" text="Crime" />
+                                          <MenuItem fx:id="optDrama" mnemonicParsing="false" onAction="#optDramaOnActionHandler" text="Drama" />
+                                      </items>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </MenuButton>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="417.0" text="Search Movies" textFill="#272727">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <GridPane.margin>
+                                    <Insets top="20.0" />
+                                 </GridPane.margin>
+                              </GridPane>
+                              <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#btnSearchOnActionHandler" prefHeight="58.0" prefWidth="134.0" style="-fx-background-color: #7fcf6d;" text="Search" textFill="WHITE" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font></Button>
+                              <TableView fx:id="tblMovies" prefHeight="200.0" prefWidth="768.0" style="-fx-border-width: 0.5; -fx-border-color: #cfcfcf;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowSpan="5" GridPane.vgrow="ALWAYS">
+                                <columns>
+                                  <TableColumn fx:id="clmMovieName" prefWidth="345.0" text="Movie" />
+                                  <TableColumn fx:id="clmDirector" minWidth="0.0" prefWidth="158.0" text="Director" />
+                                    <TableColumn fx:id="clmGenre" prefWidth="118.0" text="Genre" />
+                                    <TableColumn fx:id="clmLength" prefWidth="73.0" text="Length" />
+                                    <TableColumn fx:id="clmAvailable" prefWidth="73.0" text="Available" />
+                                </columns>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TableView>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text=" Rent Out / Return ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutY="4.0" prefHeight="561.0" prefWidth="1225.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="371.0" text="Rent Out" textAlignment="CENTER" textFill="#272727" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="cldReturnDate" prefHeight="45.0" prefWidth="628.0" promptText="Return date" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                              </DatePicker>
+                              <TextField fx:id="txtMovieToRent" prefHeight="45.0" prefWidth="555.0" promptText="Movie to rent" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="txtClientPhone" prefHeight="45.0" prefWidth="625.0" promptText="Client phone number" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Button fx:id="btnRent" mnemonicParsing="false" onAction="#btnRentOnActionHandler" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: #7fcf6d;" text="Rent" textFill="WHITE" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Button>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="371.0" text="Return movie" textAlignment="CENTER" textFill="#272727" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblRentStatus" prefHeight="45.0" prefWidth="553.0" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblRentedMovie" prefHeight="45.0" prefWidth="632.0" style="-fx-border-width: 0 0 1px 0; -fx-border-color: #7fcf6d;" text="Movie: " GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblBorrower" prefHeight="45.0" prefWidth="632.0" style="-fx-border-width: 0 0 1px 0; -fx-border-color: #7fcf6d;" text="Client:" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblPrice" prefHeight="45.0" prefWidth="632.0" style="-fx-border-width: 0 0 1px 0; -fx-border-color: #7fcf6d;" text="Price:" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblReturnStatus" prefHeight="63.0" prefWidth="613.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Button fx:id="btnReturn" mnemonicParsing="false" onAction="#btnReturnOnActionHandler" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: #7fcf6d;" text="Return" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Button>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="507.0" minWidth="10.0" prefWidth="507.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="301.0" minWidth="10.0" prefWidth="105.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="txtBorrowId" prefHeight="45.0" prefWidth="555.0" promptText="Borrow ID" style="-fx-focus-color: rgba(0,255,0,0.5);">
+                                       <GridPane.margin>
+                                          <Insets bottom="20.0" left="30.0" right="20.0" top="20.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Button fx:id="btnSearchBorrow" mnemonicParsing="false" onAction="#btnSearchBorrowOnActionHandler" prefHeight="38.0" prefWidth="81.0" style="-fx-background-color: #7fcf6d;" text="Search" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                       <GridPane.margin>
+                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.rowIndex="4">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="txtEmployeeId" prefHeight="45.0" prefWidth="628.0" promptText="Employee ID" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.valignment="TOP">
+                                       <GridPane.margin>
+                                          <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField fx:id="txtPrice" prefHeight="45.0" prefWidth="306.0" promptText="Price" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text=" Add Movie ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="561.0" prefWidth="1027.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="157.0" text="Add Movie" textFill="#272727" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets top="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextField fx:id="txtMovieToAdd" prefHeight="45.0" prefWidth="555.0" promptText="Movie name" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtDirectorToAdd" prefHeight="45.0" prefWidth="555.0" promptText="Director" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="btnAddMovie" mnemonicParsing="false" onAction="#btnAddMovieOnActionHandler" prefHeight="57.0" prefWidth="127.0" style="-fx-background-color: #7fcf6d;" text="Add Movie" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="lblAddMovieError" alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="649.0" textFill="#272727" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <MenuButton fx:id="mbtnGenreToAdd" mnemonicParsing="false" prefHeight="45.0" prefWidth="625.0" style="-fx-background-color: white; -fx-border-width: 1px; -fx-border-color: #cfcfcf; -fx-border-radius: 3px; -fx-focus-color: rgba(0,255,0,0.5);" text="Genre" GridPane.rowIndex="3">
+                                 <items>
+                                    <MenuItem fx:id="optActionAdd" mnemonicParsing="false" onAction="#optActionAddOnActionHandler" text="Action" />
+                                    <MenuItem fx:id="optSciFiToAdd" mnemonicParsing="false" onAction="#optSciFiToAddOnActionHandler" text="Science Fiction" />
+                                    <MenuItem fx:id="optHorrorToAdd" mnemonicParsing="false" onAction="#optHorrorToAddOnActionHandler" text="Horror" />
+                                    <MenuItem fx:id="optComedyToAdd" mnemonicParsing="false" onAction="#optComedyToAddOnActionHandler" text="Comedy" />
+                                    <MenuItem fx:id="optDramaToAdd" mnemonicParsing="false" onAction="#optDramaToAddOnActionHandler" text="Drama" />
+                                    <MenuItem fx:id="optCrimeToAdd" mnemonicParsing="false" onAction="#optCrimeToAddOnActionHandler" text="Crime" />
+                                 </items>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </MenuButton>
+                              <GridPane GridPane.rowIndex="4">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="txtLengthToAdd" prefHeight="45.0" prefWidth="555.0" promptText="Length" style="-fx-focus-color: rgba(0,255,0,0.5);">
+                                       <GridPane.margin>
+                                          <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField fx:id="txtCopiesToAdd" prefHeight="45.0" prefWidth="555.0" promptText="Number of copies" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text=" Add Client ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="561.0" prefWidth="1027.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="111.0" minHeight="10.0" prefHeight="111.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="292.0" minHeight="10.0" prefHeight="292.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtFirstName" prefHeight="48.0" prefWidth="613.0" promptText="Frst name" style="-fx-focus-color: rgb(0,255,0,0.5);" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtLastName" prefHeight="48.0" prefWidth="613.0" promptText="Last name" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtEmail" prefHeight="48.0" prefWidth="613.0" promptText="Email" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="txtPhoneNumber" prefHeight="48.0" prefWidth="613.0" promptText="Phone number" style="-fx-focus-color: rgba(0,255,0,0.5);" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="lblStatusAdd" prefHeight="74.0" prefWidth="621.0" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnAddClient" mnemonicParsing="false" onAction="#btnAddClientOnActionHandler" prefHeight="57.0" prefWidth="127.0" style="-fx-background-color: #7fcf6d;" text="Add Client" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font></Button>
+                              <Label alignment="CENTER" prefHeight="58.0" prefWidth="177.0" text="Add Client" textFill="#242424" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TabPane>
+   </children>
+</AnchorPane>
