@@ -356,7 +356,7 @@ public class HelloController {
                     return -1;
                 }
 
-                if(!rs.getString("videoLibrary").trim().equals(branch)){
+                if(!rs.getString("videoLibrary").trim().equals(branch.trim())){
                     lblReturnStatus.setText("Movie is rented by a different video library");
                     lblReturnStatus.setTextFill(Color.RED);
                     return -1;
